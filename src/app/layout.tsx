@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="ar" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${tajawal.variable} font-tajawal antialiased bg-[#030712] text-white`}
+        className={`${inter.variable} ${tajawal.variable} font-tajawal antialiased bg-[#020617] text-white`}
       >
         {children}
         <Toaster />

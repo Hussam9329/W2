@@ -20,10 +20,10 @@ type SortBy = 'addedAt' | 'title' | 'year' | 'rating' | 'userRating'
 type SortOrder = 'asc' | 'desc'
 
 const TAB_CONFIG: Record<TabType, { icon: typeof Gamepad2; label: string; plural: string; color: string; bgColor: string; platform: string }> = {
-  all: { icon: Gamepad2, label: 'الكل', plural: 'جميع الألعاب', color: 'from-teal-500 to-cyan-500', bgColor: 'bg-teal-500/10', platform: '' },
-  pc: { icon: Monitor, label: 'PC', plural: 'ألعاب PC', color: 'from-blue-500 to-indigo-500', bgColor: 'bg-blue-500/10', platform: 'PC' },
-  console: { icon: Gamepad2, label: 'كونسول', plural: 'ألعاب كونسول', color: 'from-purple-500 to-violet-500', bgColor: 'bg-purple-500/10', platform: 'Console' },
-  mobile: { icon: Smartphone, label: 'موبايل', plural: 'ألعاب موبايل', color: 'from-orange-500 to-red-500', bgColor: 'bg-orange-500/10', platform: 'Mobile' }
+  all: { icon: Gamepad2, label: 'الكل', plural: 'جميع الألعاب', color: 'from-blue-500 to-sky-500', bgColor: 'bg-blue-500/10', platform: '' },
+  pc: { icon: Monitor, label: 'PC', plural: 'ألعاب PC', color: 'from-sky-500 to-blue-500', bgColor: 'bg-blue-500/10', platform: 'PC' },
+  console: { icon: Gamepad2, label: 'كونسول', plural: 'ألعاب كونسول', color: 'from-blue-500 to-indigo-400', bgColor: 'bg-blue-500/10', platform: 'Console' },
+  mobile: { icon: Smartphone, label: 'موبايل', plural: 'ألعاب موبايل', color: 'from-sky-400 to-blue-500', bgColor: 'bg-sky-500/10', platform: 'Mobile' }
 }
 
 const YEARS_RANGE = Array.from({ length: 100 }, (_, i) => (new Date().getFullYear() - i).toString())
@@ -381,13 +381,13 @@ export default function GamesPage() {
 
   const TabIcon = TAB_CONFIG[activeTab].icon
 
-  if (isLoading) return <div className="min-h-screen bg-[#0a0a0a] text-white flex items-center justify-center"><Loader2 className="w-12 h-12 animate-spin text-teal-500" /></div>
+  if (isLoading) return <div className="min-h-screen bg-[#020617] text-white flex items-center justify-center"><Loader2 className="w-12 h-12 animate-spin text-blue-500" /></div>
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white">
+    <div className="min-h-screen bg-[#020617] text-white">
       <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-teal-500/5 to-transparent rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-cyan-500/5 to-transparent rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-blue-500/5 to-transparent rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-sky-500/5 to-transparent rounded-full blur-3xl" />
       </div>
       <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-8" dir="rtl">
         <header className="flex items-center justify-between mb-6">
@@ -395,7 +395,7 @@ export default function GamesPage() {
             <Button onClick={() => { window.location.href = '/' }} variant="ghost" size="icon" className="text-neutral-500 hover:text-white hover:bg-[#1a1a1a]">
               <ArrowRight className="w-5 h-5" />
             </Button>
-            <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center shadow-lg">
+            <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-blue-500 to-sky-500 flex items-center justify-center shadow-lg">
               <Gamepad2 className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
             </div>
             <div>
@@ -424,7 +424,7 @@ export default function GamesPage() {
                 </div>
               </PopoverContent>
             </Popover>
-            <Button onClick={() => { resetForm(); setShowAddDialog(true) }} className="bg-gradient-to-br from-teal-500 to-cyan-500 text-white font-bold gap-2">
+            <Button onClick={() => { resetForm(); setShowAddDialog(true) }} className="bg-gradient-to-br from-blue-500 to-sky-500 text-white font-bold gap-2">
               <Plus className="w-4 h-4" /><span className="hidden sm:inline">إضافة لعبة</span>
             </Button>
           </div>
@@ -432,22 +432,22 @@ export default function GamesPage() {
 
         {showStats && (
           <div className="bg-[#0f0f0f] border border-[#2a2a2a] rounded-xl p-6 mb-6">
-            <h3 className="font-bold mb-4 flex items-center gap-2"><BarChart3 className="w-5 h-5 text-teal-500" />إحصائيات الألعاب</h3>
+            <h3 className="font-bold mb-4 flex items-center gap-2"><BarChart3 className="w-5 h-5 text-blue-500" />إحصائيات الألعاب</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div className="bg-[#1a1a1a] rounded-lg p-4 border border-[#2a2a2a]">
-                <p className="text-2xl font-bold text-teal-500">{stats.total}</p>
+                <p className="text-2xl font-bold text-blue-500">{stats.total}</p>
                 <p className="text-sm text-neutral-400">إجمالي</p>
               </div>
               <div className="bg-[#1a1a1a] rounded-lg p-4 border border-[#2a2a2a]">
-                <p className="text-2xl font-bold text-cyan-400">{stats.played}</p>
+                <p className="text-2xl font-bold text-blue-300">{stats.played}</p>
                 <p className="text-sm text-neutral-400">تم لعبها</p>
               </div>
               <div className="bg-[#1a1a1a] rounded-lg p-4 border border-[#2a2a2a]">
-                <p className="text-2xl font-bold text-emerald-400">{stats.favorite}</p>
+                <p className="text-2xl font-bold text-blue-400">{stats.favorite}</p>
                 <p className="text-sm text-neutral-400">مفضلة</p>
               </div>
               <div className="bg-[#1a1a1a] rounded-lg p-4 border border-[#2a2a2a]">
-                <p className="text-2xl font-bold text-teal-300">{stats.avgRating.toFixed(1)}</p>
+                <p className="text-2xl font-bold text-sky-300">{stats.avgRating.toFixed(1)}</p>
                 <p className="text-sm text-neutral-400">متوسط التقييم</p>
               </div>
             </div>
@@ -475,7 +475,7 @@ export default function GamesPage() {
           <div className="flex items-center gap-2 sm:gap-3 overflow-x-auto mobile-toolbar pb-1 sm:pb-0">
             <div className="flex-1 min-w-0 relative">
               <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
-              <Input value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder="بحث عن لعبة..." className="bg-[#1a1a1a] border-[#2a2a2a] focus:border-teal-500 pr-9 h-10" />
+              <Input value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder="بحث عن لعبة..." className="bg-[#1a1a1a] border-[#2a2a2a] focus:border-blue-500 pr-9 h-10" />
             </div>
             <div className="hidden sm:flex">
               <Select value={sortBy} onValueChange={(v) => setSortBy(v as SortBy)}>
@@ -492,10 +492,10 @@ export default function GamesPage() {
             </div>
             <Button variant="ghost" size="icon" onClick={() => setSortOrder(p => p === 'asc' ? 'desc' : 'asc')} className="h-10 w-10 text-neutral-400">{sortOrder === 'asc' ? '↑' : '↓'}</Button>
             <div className="flex bg-[#1a1a1a] rounded-lg p-1">
-              <Button variant="ghost" size="icon" onClick={() => setViewMode('grid')} className={`h-8 w-8 ${viewMode === 'grid' ? 'bg-gradient-to-br from-teal-500 to-cyan-500 text-white' : 'text-neutral-400'}`}><Grid3X3 className="w-4 h-4" /></Button>
-              <Button variant="ghost" size="icon" onClick={() => setViewMode('list')} className={`h-8 w-8 ${viewMode === 'list' ? 'bg-gradient-to-br from-teal-500 to-cyan-500 text-white' : 'text-neutral-400'}`}><List className="w-4 h-4" /></Button>
+              <Button variant="ghost" size="icon" onClick={() => setViewMode('grid')} className={`h-8 w-8 ${viewMode === 'grid' ? 'bg-gradient-to-br from-blue-500 to-sky-500 text-white' : 'text-neutral-400'}`}><Grid3X3 className="w-4 h-4" /></Button>
+              <Button variant="ghost" size="icon" onClick={() => setViewMode('list')} className={`h-8 w-8 ${viewMode === 'list' ? 'bg-gradient-to-br from-blue-500 to-sky-500 text-white' : 'text-neutral-400'}`}><List className="w-4 h-4" /></Button>
             </div>
-            <Button variant="outline" onClick={() => setShowFilters(!showFilters)} className={`gap-2 h-10 ${showFilters ? 'border-teal-500 text-teal-500' : 'border-[#2a2a2a] text-neutral-400'}`}>
+            <Button variant="outline" onClick={() => setShowFilters(!showFilters)} className={`gap-2 h-10 ${showFilters ? 'border-blue-500 text-blue-500' : 'border-[#2a2a2a] text-neutral-400'}`}>
               <Filter className="w-4 h-4" /><span className="hidden sm:inline">فلاتر</span>
             </Button>
           </div>
@@ -535,13 +535,13 @@ export default function GamesPage() {
 
         {filteredItems.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20">
-            <div className="w-24 h-24 rounded-full bg-teal-500/10 flex items-center justify-center mb-6">
+            <div className="w-24 h-24 rounded-full bg-blue-500/10 flex items-center justify-center mb-6">
               <Gamepad2 className="w-12 h-12 text-neutral-500" />
             </div>
             <h3 className="text-xl font-bold mb-2">{gameList.length === 0 ? 'القائمة فارغة' : 'لا توجد نتائج'}</h3>
             <p className="text-neutral-500 mb-8">{gameList.length === 0 ? 'أضف أول لعبة إلى قائمتك' : 'جرب تغيير الفلاتر'}</p>
             {gameList.length === 0 && (
-              <Button onClick={() => { resetForm(); setShowAddDialog(true) }} className="bg-gradient-to-br from-teal-500 to-cyan-500 text-white font-bold">
+              <Button onClick={() => { resetForm(); setShowAddDialog(true) }} className="bg-gradient-to-br from-blue-500 to-sky-500 text-white font-bold">
                 <Plus className="w-5 h-5 ml-2" />إضافة أول لعبة
               </Button>
             )}
@@ -554,7 +554,7 @@ export default function GamesPage() {
                   {item.poster ? (
                     <img src={item.poster} alt={item.title} className="w-full h-full object-cover" />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-teal-500/10">
+                    <div className="w-full h-full flex items-center justify-center bg-blue-500/10">
                       <Gamepad2 className="w-16 h-16 text-neutral-500" />
                     </div>
                   )}
@@ -563,7 +563,7 @@ export default function GamesPage() {
                     {item.favorite && <Badge className="bg-red-500 text-white p-1"><Heart className="w-3 h-3 fill-white" /></Badge>}
                     {item.watched && <Badge className="bg-green-500 text-black"><Check className="w-3 h-3" /></Badge>}
                   </div>
-                  {item.rating && <div className="absolute top-2 left-2"><Badge className="bg-black/60 text-teal-300"><Star className="w-3 h-3 ml-1 fill-teal-300" />{item.rating}</Badge></div>}
+                  {item.rating && <div className="absolute top-2 left-2"><Badge className="bg-black/60 text-sky-300"><Star className="w-3 h-3 ml-1 fill-sky-300" />{item.rating}</Badge></div>}
                   <div className="absolute bottom-0 right-0 left-0 p-3">
                     <h3 className="font-bold text-sm line-clamp-1">{getDisplayTitle(item)}</h3>
                     <div className="flex items-center gap-2 text-xs text-neutral-400">
@@ -577,7 +577,7 @@ export default function GamesPage() {
                   </div>
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity hidden sm:flex items-center justify-center gap-2">
                     <Button size="icon" onClick={(e) => { e.stopPropagation(); removeFromList(item.id) }} className="w-9 h-9 rounded-full bg-red-500 text-white"><Trash2 className="w-4 h-4" /></Button>
-                    <Button size="icon" onClick={(e) => { e.stopPropagation(); openEditDialog(item) }} className="w-9 h-9 rounded-full bg-teal-500/80 text-white"><Edit3 className="w-4 h-4" /></Button>
+                    <Button size="icon" onClick={(e) => { e.stopPropagation(); openEditDialog(item) }} className="w-9 h-9 rounded-full bg-blue-500/80 text-white"><Edit3 className="w-4 h-4" /></Button>
                     <Button size="icon" onClick={(e) => { e.stopPropagation(); togglePlayed(item.id) }} className={`w-9 h-9 rounded-full ${item.watched ? 'bg-green-500 text-black' : 'bg-white/20 text-white'}`}>{item.watched ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}</Button>
                   </div>
                 </div>
@@ -592,7 +592,7 @@ export default function GamesPage() {
                   {item.poster ? (
                     <img src={item.poster} alt={item.title} className="w-full h-full object-cover" />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-teal-500/10">
+                    <div className="w-full h-full flex items-center justify-center bg-blue-500/10">
                       <Gamepad2 className="w-8 h-8 text-neutral-500" />
                     </div>
                   )}
@@ -603,7 +603,7 @@ export default function GamesPage() {
                     <div className="flex items-center gap-1">
                       {item.favorite && <Heart className="w-4 h-4 text-red-500 fill-red-500" />}
                       {item.watched && <Check className="w-4 h-4 text-green-500" />}
-                      {item.rating && <Badge className="bg-teal-500/20 text-teal-300"><Star className="w-3 h-3 ml-1 fill-teal-300" />{item.rating}</Badge>}
+                      {item.rating && <Badge className="bg-blue-500/20 text-sky-300"><Star className="w-3 h-3 ml-1 fill-sky-300" />{item.rating}</Badge>}
                     </div>
                   </div>
                   <div className="flex items-center gap-3 mt-1 text-xs text-neutral-400">
@@ -628,26 +628,26 @@ export default function GamesPage() {
                       {selectedItem.poster ? (
                         <img src={selectedItem.poster} alt="" className="w-full h-full object-cover" />
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center bg-teal-500/10">
+                        <div className="w-full h-full flex items-center justify-center bg-blue-500/10">
                           <Gamepad2 className="w-12 h-12 text-neutral-500" />
                         </div>
                       )}
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2">
-                        <span className="text-teal-400">{selectedItem.year}</span>
-                        {selectedItem.rating && <Badge className="bg-teal-500/20 text-teal-300"><Star className="w-3 h-3 ml-1 fill-teal-300" />{selectedItem.rating}</Badge>}
+                        <span className="text-blue-400">{selectedItem.year}</span>
+                        {selectedItem.rating && <Badge className="bg-blue-500/20 text-sky-300"><Star className="w-3 h-3 ml-1 fill-sky-300" />{selectedItem.rating}</Badge>}
                       </div>
                       {(selectedItem as any).author && <p className="text-sm text-neutral-400">المنصة: {(selectedItem as any).author}</p>}
                     </div>
                   </div>
-                  {selectedItem.overview && <div><h4 className="font-medium mb-1 text-teal-400">الوصف</h4><p className="text-sm text-neutral-300">{selectedItem.overview}</p></div>}
-                  {selectedItem.notes && <div><h4 className="font-medium mb-1 text-teal-400">ملاحظاتي</h4><p className="text-sm text-neutral-300">{selectedItem.notes}</p></div>}
+                  {selectedItem.overview && <div><h4 className="font-medium mb-1 text-blue-400">الوصف</h4><p className="text-sm text-neutral-300">{selectedItem.overview}</p></div>}
+                  {selectedItem.notes && <div><h4 className="font-medium mb-1 text-blue-400">ملاحظاتي</h4><p className="text-sm text-neutral-300">{selectedItem.notes}</p></div>}
                   <div>
-                    <h4 className="font-medium mb-2 text-teal-400">تقييمي</h4>
+                    <h4 className="font-medium mb-2 text-blue-400">تقييمي</h4>
                     <div className="flex gap-1">
                       {[1,2,3,4,5,6,7,8,9,10].map(r => (
-                        <button key={r} onClick={() => setUserRating(selectedItem.id, r)} className={`w-8 h-8 rounded ${(selectedItem.userRating || 0) >= r ? 'bg-teal-500 text-white' : 'bg-[#1a1a1a] text-neutral-400 hover:bg-[#2a2a2a]'}`}>{r}</button>
+                        <button key={r} onClick={() => setUserRating(selectedItem.id, r)} className={`w-8 h-8 rounded ${(selectedItem.userRating || 0) >= r ? 'bg-blue-500 text-white' : 'bg-[#1a1a1a] text-neutral-400 hover:bg-[#2a2a2a]'}`}>{r}</button>
                       ))}
                     </div>
                   </div>
@@ -659,7 +659,7 @@ export default function GamesPage() {
                     <Button onClick={() => removeFromList(selectedItem.id)} variant="destructive" className="flex-1"><Trash2 className="w-4 h-4 ml-2" />حذف</Button>
                   </div>
                   <div className="flex gap-2">
-                    <Button onClick={() => openEditDialog(selectedItem)} className="flex-1 bg-gradient-to-br from-teal-500 to-cyan-500 text-white"><Edit3 className="w-4 h-4 ml-2" />تعديل</Button>
+                    <Button onClick={() => openEditDialog(selectedItem)} className="flex-1 bg-gradient-to-br from-blue-500 to-sky-500 text-white"><Edit3 className="w-4 h-4 ml-2" />تعديل</Button>
                   </div>
                 </div>
               </>
@@ -670,7 +670,7 @@ export default function GamesPage() {
         {/* إضافة لعبة */}
         <Dialog open={showAddDialog} onOpenChange={setShowAddDialog}>
           <DialogContent className="max-w-[calc(100vw-1rem)] sm:max-w-lg bg-[#0f0f0f] border-[#2a2a2a] max-h-[90vh] overflow-y-auto">
-            <DialogHeader><DialogTitle className="text-xl flex items-center gap-2"><Plus className="w-5 h-5 text-teal-500" />إضافة لعبة جديدة</DialogTitle></DialogHeader>
+            <DialogHeader><DialogTitle className="text-xl flex items-center gap-2"><Plus className="w-5 h-5 text-blue-500" />إضافة لعبة جديدة</DialogTitle></DialogHeader>
             <div className="space-y-4 mt-4">
               <div className={`relative aspect-video rounded-xl overflow-hidden cursor-pointer ${!formData.poster ? 'bg-[#1a1a1a] border-2 border-dashed border-[#2a2a2a]' : ''}`} onDragOver={handleDragOver} onDragLeave={handleDragLeave} onDrop={handleDrop} onClick={() => fileInputRef.current?.click()}>
                 {formData.poster ? (
@@ -690,30 +690,30 @@ export default function GamesPage() {
               <div className="p-3 rounded-xl bg-[#1a1a1a]/50 border border-[#2a2a2a]">
                 <label className="text-sm text-neutral-400 mb-2 block">ابحث لجلب معلومات اللعبة تلقائياً</label>
                 <div className="flex gap-2">
-                  <Input value={metaSearchQuery} onChange={(e) => setMetaSearchQuery(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && fetchGameMetadata()} placeholder="ابحث عن لعبة..." className="bg-[#1a1a1a] border-[#2a2a2a] focus:border-teal-500 h-10 flex-1" />
-                  <Button onClick={fetchGameMetadata} disabled={isFetching || !metaSearchQuery.trim()} className="bg-gradient-to-br from-teal-500 to-cyan-500 text-white px-4">{isFetching ? <Loader2 className="w-4 h-4 animate-spin" /> : <Search className="w-4 h-4" />}</Button>
+                  <Input value={metaSearchQuery} onChange={(e) => setMetaSearchQuery(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && fetchGameMetadata()} placeholder="ابحث عن لعبة..." className="bg-[#1a1a1a] border-[#2a2a2a] focus:border-blue-500 h-10 flex-1" />
+                  <Button onClick={fetchGameMetadata} disabled={isFetching || !metaSearchQuery.trim()} className="bg-gradient-to-br from-blue-500 to-sky-500 text-white px-4">{isFetching ? <Loader2 className="w-4 h-4 animate-spin" /> : <Search className="w-4 h-4" />}</Button>
                 </div>
                 {searchError && <p className="text-sm text-red-400 mt-2">{searchError}</p>}
               </div>
               {showResults && searchResults.length > 0 && (
-                <div className="rounded-xl border border-teal-500/30 overflow-hidden">
-                  <div className="bg-teal-500/10 px-3 py-2 border-b border-teal-500/20"><p className="text-sm text-teal-400">اختر اللعبة المناسبة:</p></div>
+                <div className="rounded-xl border border-blue-500/30 overflow-hidden">
+                  <div className="bg-blue-500/10 px-3 py-2 border-b border-blue-500/20"><p className="text-sm text-blue-400">اختر اللعبة المناسبة:</p></div>
                   <div className="divide-y divide-[#2a2a2a] max-h-[300px] overflow-y-auto">
                     {searchResults.map((r, i) => (
-                      <div key={i} className="w-full p-3 flex items-center gap-3 hover:bg-teal-500/10">
+                      <div key={i} className="w-full p-3 flex items-center gap-3 hover:bg-blue-500/10">
                         <div className="w-10 h-14 rounded-lg overflow-hidden bg-[#1a1a1a] flex-shrink-0">
                           <img src={(r as any).smallPoster || r.poster || ''} alt="" className="w-full h-full object-cover" />
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 flex-wrap">
                             <span className="font-medium text-sm truncate">{r.originalTitle || r.title}</span>
-                            {r.rating && <Badge className="bg-teal-500/20 text-teal-300 text-xs flex-shrink-0"><Star className="w-2.5 h-2.5 ml-0.5" />{r.rating}</Badge>}
+                            {r.rating && <Badge className="bg-blue-500/20 text-sky-300 text-xs flex-shrink-0"><Star className="w-2.5 h-2.5 ml-0.5" />{r.rating}</Badge>}
                           </div>
                           {r.platform && <p className="text-xs text-neutral-500 mt-0.5">{r.platform}</p>}
                         </div>
                         <div className="flex gap-2 flex-shrink-0">
                           <Button size="sm" onClick={() => selectGameResult(r)} variant="outline" className="border-[#2a2a2a] text-xs h-7 px-2">تعديل</Button>
-                          <Button size="sm" onClick={() => selectAndAddGame(r)} className="bg-teal-500 text-white text-xs h-7 px-2">إضافة</Button>
+                          <Button size="sm" onClick={() => selectAndAddGame(r)} className="bg-blue-500 text-white text-xs h-7 px-2">إضافة</Button>
                         </div>
                       </div>
                     ))}
@@ -756,7 +756,7 @@ export default function GamesPage() {
               </div>
               <div className="flex gap-3 pt-2">
                 <Button onClick={() => setShowAddDialog(false)} variant="outline" className="flex-1 border-[#2a2a2a]">إلغاء</Button>
-                <Button onClick={handleAddItem} disabled={!formData.originalTitle.trim() && !formData.title.trim()} className="flex-1 bg-gradient-to-br from-teal-500 to-cyan-500 text-white font-bold">
+                <Button onClick={handleAddItem} disabled={!formData.originalTitle.trim() && !formData.title.trim()} className="flex-1 bg-gradient-to-br from-blue-500 to-sky-500 text-white font-bold">
                   <Plus className="w-4 h-4 ml-2" />إضافة
                 </Button>
               </div>
@@ -767,7 +767,7 @@ export default function GamesPage() {
         {/* تعديل لعبة */}
         <Dialog open={showEditDialog} onOpenChange={setShowEditDialog}>
           <DialogContent className="max-w-[calc(100vw-1rem)] sm:max-w-lg bg-[#0f0f0f] border-[#2a2a2a] max-h-[90vh] overflow-y-auto">
-            <DialogHeader><DialogTitle className="text-xl flex items-center gap-2"><Edit3 className="w-5 h-5 text-teal-500" />تعديل اللعبة</DialogTitle></DialogHeader>
+            <DialogHeader><DialogTitle className="text-xl flex items-center gap-2"><Edit3 className="w-5 h-5 text-blue-500" />تعديل اللعبة</DialogTitle></DialogHeader>
             <div className="space-y-4 mt-4">
               <div className={`relative aspect-video rounded-xl overflow-hidden cursor-pointer ${!formData.poster ? 'bg-[#1a1a1a] border-2 border-dashed border-[#2a2a2a]' : ''}`} onDragOver={handleDragOver} onDragLeave={handleDragLeave} onDrop={handleDrop} onClick={() => fileInputRef.current?.click()}>
                 {formData.poster ? (
@@ -819,7 +819,7 @@ export default function GamesPage() {
               </div>
               <div className="flex gap-3 pt-2">
                 <Button onClick={() => setShowEditDialog(false)} variant="outline" className="flex-1 border-[#2a2a2a]">إلغاء</Button>
-                <Button onClick={handleSaveEdit} className="flex-1 bg-gradient-to-br from-teal-500 to-cyan-500 text-white font-bold">
+                <Button onClick={handleSaveEdit} className="flex-1 bg-gradient-to-br from-blue-500 to-sky-500 text-white font-bold">
                   <Check className="w-4 h-4 ml-2" />حفظ
                 </Button>
               </div>

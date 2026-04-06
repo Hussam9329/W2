@@ -50,12 +50,12 @@ interface Task {
 // ===================== Constants =====================
 
 const CATEGORY_CONFIG: Record<IdeaCategory, { label: string; color: string; icon: typeof Palette }> = {
-  design: { label: 'تصميم', color: '#ec4899', icon: Palette },
-  code: { label: 'برمجة', color: '#3b82f6', icon: Code },
-  art: { label: 'فن', color: '#8b5cf6', icon: LightbulbIcon },
-  text: { label: 'نص', color: '#10b981', icon: BookOpen },
-  cooking: { label: 'طبخ', color: '#f59e0b', icon: UtensilsCrossed },
-  other: { label: 'أخرى', color: '#6b7280', icon: CircleDot },
+  design: { label: 'تصميم', color: '#06b6d4', icon: Palette },
+  code: { label: 'برمجة', color: '#0ea5e9', icon: Code },
+  art: { label: 'فن', color: '#38bdf8', icon: LightbulbIcon },
+  text: { label: 'نص', color: '#22d3ee', icon: BookOpen },
+  cooking: { label: 'طبخ', color: '#0284c7', icon: UtensilsCrossed },
+  other: { label: 'أخرى', color: '#64748b', icon: CircleDot },
 }
 
 const PRIORITY_CONFIG: Record<IdeaPriority, { label: string; color: string }> = {
@@ -515,7 +515,7 @@ export default function IdeasPage() {
 
   const renderSidebar = () => (
     <aside
-      className={`fixed top-0 right-0 z-40 h-full w-64 sm:w-72 transition-transform duration-300 bg-[#0f1629] border-l border-white/10 lg:translate-x-0 ${
+      className={`fixed top-0 right-0 z-40 h-full w-64 sm:w-72 transition-transform duration-300 bg-[#0c1a2e] border-l border-white/10 lg:translate-x-0 ${
         sidebarOpen ? 'translate-x-0' : 'translate-x-full lg:translate-x-0'
       }`}
       style={{ direction: 'rtl' }}
@@ -526,7 +526,7 @@ export default function IdeasPage() {
           <div className="flex items-center gap-3 mb-1">
             <div
               className="w-10 h-10 rounded-xl flex items-center justify-center"
-              style={{ background: 'linear-gradient(135deg, #8b5cf6, #6366f1)' }}
+              style={{ background: 'linear-gradient(135deg, #06b6d4, #0ea5e9)' }}
             >
               <Brain className="w-5 h-5 text-white" />
             </div>
@@ -547,12 +547,12 @@ export default function IdeasPage() {
 
         {/* AI Assistant */}
         <div className="p-4">
-          <div className="rounded-xl p-4 border border-purple-500/20 bg-gradient-to-br from-purple-500/10 to-indigo-500/5">
+          <div className="rounded-xl p-4 border border-cyan-500/20 bg-gradient-to-br from-cyan-500/10 to-sky-500/5">
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center">
+              <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-cyan-500 to-sky-500 flex items-center justify-center">
                 <Brain className="w-3.5 h-3.5 text-white" />
               </div>
-              <span className="text-sm font-bold text-purple-300">مساعد الذكاء الاصطناعي</span>
+              <span className="text-sm font-bold text-cyan-300">مساعد الذكاء الاصطناعي</span>
             </div>
             <p className="text-xs text-gray-300 leading-relaxed mb-3 min-h-[40px]">
               {aiSuggestion || '...'}
@@ -561,7 +561,7 @@ export default function IdeasPage() {
               <button
                 onClick={() => refreshSuggestion()}
                 disabled={isLoadingAi}
-                className="flex-1 flex items-center justify-center gap-1 text-xs py-2 rounded-lg bg-purple-500/10 text-purple-300 hover:bg-purple-500/20 transition-colors disabled:opacity-50"
+                className="flex-1 flex items-center justify-center gap-1 text-xs py-2 rounded-lg bg-cyan-500/10 text-cyan-300 hover:bg-cyan-500/20 transition-colors disabled:opacity-50"
               >
                 <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -570,7 +570,7 @@ export default function IdeasPage() {
               </button>
               <button
                 onClick={addSuggestionAsIdea}
-                className="flex-1 flex items-center justify-center gap-1 text-xs py-2 rounded-lg bg-purple-500/20 text-purple-200 hover:bg-purple-500/30 transition-colors"
+                className="flex-1 flex items-center justify-center gap-1 text-xs py-2 rounded-lg bg-cyan-500/20 text-cyan-200 hover:bg-cyan-500/30 transition-colors"
               >
                 <Plus className="w-3 h-3" />
                 حفظ فكرة
@@ -578,7 +578,7 @@ export default function IdeasPage() {
             </div>
             <button
               onClick={() => { setAiMessages([]); setAiAction('suggest'); setAiInput(''); setSelectedIdeaForAi(null); setActiveView('ai'); setSidebarOpen(false) }}
-              className="w-full flex items-center justify-center gap-2 text-xs py-2 rounded-lg bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:from-purple-500 hover:to-indigo-500 transition-all"
+              className="w-full flex items-center justify-center gap-2 text-xs py-2 rounded-lg bg-gradient-to-r from-cyan-600 to-sky-600 text-white hover:from-cyan-500 hover:to-sky-500 transition-all"
             >
               <MessageSquare className="w-3.5 h-3.5" />
               فتح المساعد الذكي
@@ -604,7 +604,7 @@ export default function IdeasPage() {
                 }}
                 className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-all ${
                   activeView === item.key
-                    ? (item.highlight ? 'bg-purple-500/15 text-purple-300 border border-purple-500/25' : 'bg-indigo-500/10 text-indigo-400 border border-indigo-500/20')
+                    ? (item.highlight ? 'bg-cyan-500/15 text-cyan-300 border border-cyan-500/25' : 'bg-sky-500/10 text-sky-400 border border-sky-500/20')
                     : 'text-gray-400 hover:bg-white/5 hover:text-white'
                 }`}
               >
@@ -613,7 +613,7 @@ export default function IdeasPage() {
                 {item.key === 'ideas' && (
                   <Badge
                     className="mr-auto text-[10px] px-1.5"
-                    style={{ backgroundColor: 'rgba(139,92,246,0.2)', color: '#a78bfa' }}
+                    style={{ backgroundColor: 'rgba(6,182,212,0.2)', color: 'cyan-400' }}
                   >
                     {ideas.length}
                   </Badge>
@@ -621,7 +621,7 @@ export default function IdeasPage() {
                 {item.key === 'tasks' && (
                   <Badge
                     className="mr-auto text-[10px] px-1.5"
-                    style={{ backgroundColor: 'rgba(59,130,246,0.2)', color: '#60a5fa' }}
+                    style={{ backgroundColor: 'rgba(14,165,233,0.2)', color: '#60a5fa' }}
                   >
                     {tasks.filter(t => !t.completed).length}
                   </Badge>
@@ -694,7 +694,7 @@ export default function IdeasPage() {
                       className="h-full rounded-full transition-all duration-500"
                       style={{
                         width: `${idea.progress}%`,
-                        backgroundColor: CATEGORY_CONFIG[idea.category]?.color || '#8b5cf6',
+                        backgroundColor: CATEGORY_CONFIG[idea.category]?.color || 'cyan-500',
                       }}
                     />
                   </div>
@@ -718,7 +718,7 @@ export default function IdeasPage() {
   // ===================== Render: Header =====================
 
   const renderHeader = () => (
-    <header className="sticky top-0 z-30 bg-[#030712]/80 backdrop-blur-xl border-b border-white/10">
+    <header className="sticky top-0 z-30 bg-[#020617]/80 backdrop-blur-xl border-b border-white/10">
       <div className="flex items-center gap-3 px-4 py-3">
         {/* Mobile menu */}
         <button
@@ -735,7 +735,7 @@ export default function IdeasPage() {
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
             placeholder="ابحث في الأفكار..."
-            className="bg-[#1e293b] border-white/10 focus:border-indigo-500/50 pr-9 h-10 text-sm text-white placeholder-gray-500"
+            className="bg-[#1e293b] border-white/10 focus:border-sky-500/50 pr-9 h-10 text-sm text-white placeholder-gray-500"
           />
         </div>
 
@@ -744,7 +744,7 @@ export default function IdeasPage() {
           <button className="hidden sm:block p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-colors relative">
             <Bell className="w-5 h-5" />
             {ideas.filter(i => i.progress > 0 && i.progress < 100).length > 0 && (
-              <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-indigo-500" />
+              <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-sky-500" />
             )}
           </button>
           <button
@@ -770,7 +770,7 @@ export default function IdeasPage() {
           </button>
           <Button
             onClick={openAddDialog}
-            className="gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white text-sm font-medium h-10 px-4"
+            className="gap-2 bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-500 hover:to-sky-500 text-white text-sm font-medium h-10 px-4"
           >
             <Plus className="w-4 h-4" />
             <span className="hidden sm:inline">فكرة جديدة</span>
@@ -785,10 +785,10 @@ export default function IdeasPage() {
   const renderStats = () => (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 p-4">
       {[
-        { label: 'إجمالي الأفكار', value: stats.total, color: '#8b5cf6', bg: 'rgba(139,92,246,0.1)', icon: Lightbulb },
-        { label: 'قيد التنفيذ', value: stats.inProgress, color: '#f59e0b', bg: 'rgba(245,158,11,0.1)', icon: TrendingUp },
-        { label: 'مكتملة', value: stats.completed, color: '#10b981', bg: 'rgba(16,185,129,0.1)', icon: Check },
-        { label: 'المفضلة', value: stats.favorites, color: '#ec4899', bg: 'rgba(236,72,153,0.1)', icon: Star },
+        { label: 'إجمالي الأفكار', value: stats.total, color: '#06b6d4', bg: 'rgba(6,182,212,0.1)', icon: Lightbulb },
+        { label: 'قيد التنفيذ', value: stats.inProgress, color: '#0ea5e9', bg: 'rgba(14,165,233,0.1)', icon: TrendingUp },
+        { label: 'مكتملة', value: stats.completed, color: '#0284c7', bg: 'rgba(2,132,199,0.1)', icon: Check },
+        { label: 'المفضلة', value: stats.favorites, color: '#38bdf8', bg: 'rgba(56,189,248,0.1)', icon: Star },
       ].map(stat => (
         <div
           key={stat.label}
@@ -816,7 +816,7 @@ export default function IdeasPage() {
     return (
       <div
         key={idea.id}
-        className="group rounded-xl overflow-hidden bg-[#0f1629] border border-white/5 hover:border-white/10 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/5"
+        className="group rounded-xl overflow-hidden bg-[#0c1a2e] border border-white/5 hover:border-white/10 transition-all duration-300 hover:shadow-lg hover:shadow-sky-500/5"
         style={{ direction: 'rtl' }}
       >
         {/* Category color strip */}
@@ -849,10 +849,10 @@ export default function IdeasPage() {
             <div className="flex items-center gap-1 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
               <button
                 onClick={() => openAiForIdea(idea)}
-                className="p-1.5 rounded-lg hover:bg-purple-500/20 transition-colors"
+                className="p-1.5 rounded-lg hover:bg-cyan-500/20 transition-colors"
                 title="مساعدة الذكاء الاصطناعي"
               >
-                <Sparkles className="w-4 h-4 text-purple-400" />
+                <Sparkles className="w-4 h-4 text-cyan-400" />
               </button>
               <button
                 onClick={() => toggleFavorite(idea.id)}
@@ -971,7 +971,7 @@ export default function IdeasPage() {
             onClick={() => setFilterCategory('all')}
             className={`flex-shrink-0 px-3 py-1.5 rounded-lg text-xs transition-all ${
               filterCategory === 'all'
-                ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30'
+                ? 'bg-sky-500/20 text-sky-300 border border-sky-500/30'
                 : 'text-gray-400 hover:bg-white/5 border border-transparent'
             }`}
           >
@@ -1009,9 +1009,9 @@ export default function IdeasPage() {
           <div className="flex flex-col items-center justify-center py-20 px-4">
             <div
               className="w-20 h-20 rounded-2xl flex items-center justify-center mb-5"
-              style={{ backgroundColor: 'rgba(139,92,246,0.1)' }}
+              style={{ backgroundColor: 'rgba(6,182,212,0.1)' }}
             >
-              <Lightbulb className="w-10 h-10 text-indigo-500/50" />
+              <Lightbulb className="w-10 h-10 text-sky-500/50" />
             </div>
             <h3 className="text-lg font-bold text-white mb-2">
               {ideas.length === 0 ? 'لا توجد أفكار بعد' : 'لا توجد نتائج'}
@@ -1024,7 +1024,7 @@ export default function IdeasPage() {
             {ideas.length === 0 && (
               <Button
                 onClick={openAddDialog}
-                className="gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white"
+                className="gap-2 bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-500 hover:to-sky-500 text-white"
               >
                 <Plus className="w-4 h-4" />
                 أضف فكرتك الأولى
@@ -1057,7 +1057,7 @@ export default function IdeasPage() {
             onChange={e => setNewTaskTitle(e.target.value)}
             onKeyDown={e => e.key === 'Enter' && addTask()}
             placeholder="أضف مهمة جديدة..."
-            className="flex-1 bg-[#1e293b] border-white/10 focus:border-indigo-500/50 h-10 text-sm text-white placeholder-gray-500"
+            className="flex-1 bg-[#1e293b] border-white/10 focus:border-sky-500/50 h-10 text-sm text-white placeholder-gray-500"
           />
           <div className="hidden sm:flex">
             <Select value={newTaskPriority} onValueChange={v => setNewTaskPriority(v as IdeaPriority)}>
@@ -1075,7 +1075,7 @@ export default function IdeasPage() {
           </div>
           <Button
             onClick={addTask}
-            className="gap-1 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white h-10 px-4"
+            className="gap-1 bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-500 hover:to-sky-500 text-white h-10 px-4"
           >
             <Plus className="w-4 h-4" />
             <span className="hidden sm:inline">إضافة</span>
@@ -1088,13 +1088,13 @@ export default function IdeasPage() {
             onClick={() => setTaskTab('pending')}
             className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm transition-all ${
               taskTab === 'pending'
-                ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/20'
+                ? 'bg-sky-500/20 text-sky-300 border border-sky-500/20'
                 : 'text-gray-400 hover:text-white'
             }`}
           >
             <CircleDot className="w-4 h-4" />
             قيد التنفيذ
-            <Badge className="text-[10px] bg-indigo-500/20 text-indigo-300">{pendingCount}</Badge>
+            <Badge className="text-[10px] bg-sky-500/20 text-sky-300">{pendingCount}</Badge>
           </button>
           <button
             onClick={() => setTaskTab('completed')}
@@ -1115,7 +1115,7 @@ export default function IdeasPage() {
           <div className="flex flex-col items-center justify-center py-16">
             <div
               className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4"
-              style={{ backgroundColor: 'rgba(59,130,246,0.1)' }}
+              style={{ backgroundColor: 'rgba(14,165,233,0.1)' }}
             >
               <Target className="w-8 h-8 text-blue-500/50" />
             </div>
@@ -1134,7 +1134,7 @@ export default function IdeasPage() {
                 className={`flex items-center gap-3 p-3 rounded-xl border transition-all ${
                   task.completed
                     ? 'bg-white/[0.02] border-white/5 opacity-60'
-                    : 'bg-[#0f1629] border-white/5 hover:border-white/10'
+                    : 'bg-[#0c1a2e] border-white/5 hover:border-white/10'
                 }`}
               >
                 <button
@@ -1142,7 +1142,7 @@ export default function IdeasPage() {
                   className={`w-5 h-5 rounded-md border-2 flex items-center justify-center flex-shrink-0 transition-all ${
                     task.completed
                       ? 'bg-green-500 border-green-500'
-                      : 'border-gray-500 hover:border-indigo-400'
+                      : 'border-gray-500 hover:border-sky-400'
                   }`}
                 >
                   {task.completed && <Check className="w-3 h-3 text-white" />}
@@ -1203,9 +1203,9 @@ export default function IdeasPage() {
       <div className="p-4 space-y-6">
         {/* Overview */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="rounded-xl p-5 border border-white/5 bg-[#0f1629]">
+          <div className="rounded-xl p-5 border border-white/5 bg-[#0c1a2e]">
             <div className="flex items-center gap-2 mb-3">
-              <Lightbulb className="w-5 h-5 text-purple-400" />
+              <Lightbulb className="w-5 h-5 text-cyan-400" />
               <h3 className="text-sm font-medium text-white">ملخص الأفكار</h3>
             </div>
             <div className="space-y-2">
@@ -1234,7 +1234,7 @@ export default function IdeasPage() {
             </div>
           </div>
 
-          <div className="rounded-xl p-5 border border-white/5 bg-[#0f1629]">
+          <div className="rounded-xl p-5 border border-white/5 bg-[#0c1a2e]">
             <div className="flex items-center gap-2 mb-3">
               <Target className="w-5 h-5 text-blue-400" />
               <h3 className="text-sm font-medium text-white">ملخص المهام</h3>
@@ -1250,12 +1250,12 @@ export default function IdeasPage() {
               </div>
               <div className="flex justify-between text-xs">
                 <span className="text-gray-400">نسبة الإنجاز</span>
-                <span className="text-indigo-400 font-medium">{taskCompletionRate}%</span>
+                <span className="text-sky-400 font-medium">{taskCompletionRate}%</span>
               </div>
             </div>
           </div>
 
-          <div className="rounded-xl p-5 border border-white/5 bg-[#0f1629]">
+          <div className="rounded-xl p-5 border border-white/5 bg-[#0c1a2e]">
             <div className="flex items-center gap-2 mb-3">
               <Star className="w-5 h-5 text-yellow-400" />
               <h3 className="text-sm font-medium text-white">الأولويات</h3>
@@ -1283,9 +1283,9 @@ export default function IdeasPage() {
         </div>
 
         {/* Category breakdown */}
-        <div className="rounded-xl p-5 border border-white/5 bg-[#0f1629]">
+        <div className="rounded-xl p-5 border border-white/5 bg-[#0c1a2e]">
           <div className="flex items-center gap-2 mb-4">
-            <Filter className="w-5 h-5 text-indigo-400" />
+            <Filter className="w-5 h-5 text-sky-400" />
             <h3 className="text-sm font-medium text-white">تفصيل التصنيفات</h3>
           </div>
           {categoryStats.length === 0 ? (
@@ -1325,19 +1325,19 @@ export default function IdeasPage() {
   const renderDialog = () => (
     <Dialog open={showAddDialog} onOpenChange={setShowAddDialog}>
       <DialogContent
-        className="w-[calc(100%-2rem)] sm:max-w-2xl bg-[#0f1629] border-white/10 max-h-[90vh] overflow-y-auto"
+        className="w-[calc(100%-2rem)] sm:max-w-2xl bg-[#0c1a2e] border-white/10 max-h-[90vh] overflow-y-auto"
         style={{ direction: 'rtl' }}
       >
         <DialogHeader>
           <DialogTitle className="text-lg text-white flex items-center gap-2">
             {editingIdea ? (
               <>
-                <Edit className="w-5 h-5 text-indigo-400" />
+                <Edit className="w-5 h-5 text-sky-400" />
                 تعديل الفكرة
               </>
             ) : (
               <>
-                <Plus className="w-5 h-5 text-indigo-400" />
+                <Plus className="w-5 h-5 text-sky-400" />
                 فكرة جديدة
               </>
             )}
@@ -1355,7 +1355,7 @@ export default function IdeasPage() {
               value={formData.title}
               onChange={e => setFormData(p => ({ ...p, title: e.target.value }))}
               placeholder="أدخل عنوان الفكرة..."
-              className="bg-[#1e293b] border-white/10 focus:border-indigo-500/50 text-sm text-white placeholder-gray-500"
+              className="bg-[#1e293b] border-white/10 focus:border-sky-500/50 text-sm text-white placeholder-gray-500"
             />
           </div>
 
@@ -1366,7 +1366,7 @@ export default function IdeasPage() {
               value={formData.content}
               onChange={e => setFormData(p => ({ ...p, content: e.target.value }))}
               placeholder="صف فكرتك بالتفصيل..."
-              className="bg-[#1e293b] border-white/10 focus:border-indigo-500/50 text-sm text-white placeholder-gray-500 min-h-[100px] resize-none"
+              className="bg-[#1e293b] border-white/10 focus:border-sky-500/50 text-sm text-white placeholder-gray-500 min-h-[100px] resize-none"
             />
           </div>
 
@@ -1442,7 +1442,7 @@ export default function IdeasPage() {
           <div>
             <label className="text-sm text-gray-300 mb-2 flex items-center justify-between">
               <span>التقدم</span>
-              <span className="text-indigo-400 font-medium">{formData.progress}%</span>
+              <span className="text-sky-400 font-medium">{formData.progress}%</span>
             </label>
             <input
               type="range"
@@ -1452,7 +1452,7 @@ export default function IdeasPage() {
               onChange={e => setFormData(p => ({ ...p, progress: parseInt(e.target.value) }))}
               className="w-full h-2 rounded-lg appearance-none cursor-pointer"
               style={{
-                background: `linear-gradient(to left, #6366f1 0%, #6366f1 ${formData.progress}%, rgba(255,255,255,0.1) ${formData.progress}%, rgba(255,255,255,0.1) 100%)`,
+                background: `linear-gradient(to left, cyan-600 0%, cyan-600 ${formData.progress}%, rgba(255,255,255,0.1) ${formData.progress}%, rgba(255,255,255,0.1) 100%)`,
               }}
             />
             <div className="flex justify-between text-[10px] text-gray-600 mt-1">
@@ -1475,7 +1475,7 @@ export default function IdeasPage() {
                 type="date"
                 value={formData.reminderDate}
                 onChange={e => setFormData(p => ({ ...p, reminderDate: e.target.value }))}
-                className="bg-[#1e293b] border-white/10 focus:border-indigo-500/50 text-sm text-white"
+                className="bg-[#1e293b] border-white/10 focus:border-sky-500/50 text-sm text-white"
               />
             </div>
             <div>
@@ -1487,7 +1487,7 @@ export default function IdeasPage() {
                 type="time"
                 value={formData.reminderTime}
                 onChange={e => setFormData(p => ({ ...p, reminderTime: e.target.value }))}
-                className="bg-[#1e293b] border-white/10 focus:border-indigo-500/50 text-sm text-white"
+                className="bg-[#1e293b] border-white/10 focus:border-sky-500/50 text-sm text-white"
               />
             </div>
           </div>
@@ -1502,7 +1502,7 @@ export default function IdeasPage() {
               value={formData.externalLink}
               onChange={e => setFormData(p => ({ ...p, externalLink: e.target.value }))}
               placeholder="https://..."
-              className="bg-[#1e293b] border-white/10 focus:border-indigo-500/50 text-sm text-white placeholder-gray-500"
+              className="bg-[#1e293b] border-white/10 focus:border-sky-500/50 text-sm text-white placeholder-gray-500"
               dir="ltr"
             />
           </div>
@@ -1524,12 +1524,12 @@ export default function IdeasPage() {
                         key={idea.id}
                         onClick={() => toggleRelatedIdea(idea.id)}
                         className={`w-full flex items-center gap-3 px-3 py-2.5 text-sm transition-all border-b border-white/5 last:border-b-0 ${
-                          selected ? 'bg-indigo-500/10 text-indigo-300' : 'text-gray-400 hover:bg-white/5 hover:text-white'
+                          selected ? 'bg-sky-500/10 text-sky-300' : 'text-gray-400 hover:bg-white/5 hover:text-white'
                         }`}
                       >
                         <div
                           className={`w-4 h-4 rounded border-2 flex items-center justify-center flex-shrink-0 transition-all ${
-                            selected ? 'bg-indigo-500 border-indigo-500' : 'border-gray-500'
+                            selected ? 'bg-sky-500 border-sky-500' : 'border-gray-500'
                           }`}
                         >
                           {selected && <Check className="w-2.5 h-2.5 text-white" />}
@@ -1547,7 +1547,7 @@ export default function IdeasPage() {
           <div className="flex gap-3 pt-2">
             <Button
               onClick={saveIdea}
-              className="flex-1 gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white h-11"
+              className="flex-1 gap-2 bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-500 hover:to-sky-500 text-white h-11"
             >
               <Check className="w-4 h-4" />
               {editingIdea ? 'حفظ التعديلات' : 'إضافة الفكرة'}
@@ -1580,21 +1580,21 @@ export default function IdeasPage() {
     return (
       <div className="flex flex-col h-[calc(100vh-65px)]">
         {/* AI Header with action buttons */}
-        <div className="flex-shrink-0 border-b border-white/10 bg-[#030712]/50">
+        <div className="flex-shrink-0 border-b border-white/10 bg-[#020617]/50">
           {/* Inspiration card */}
           <div className="p-4">
-            <div className="rounded-xl p-4 border border-purple-500/20 bg-gradient-to-br from-purple-500/10 to-indigo-500/5">
+            <div className="rounded-xl p-4 border border-cyan-500/20 bg-gradient-to-br from-cyan-500/10 to-sky-500/5">
               <div className="flex items-center gap-2 mb-2">
-                <div className="w-5 h-5 rounded-lg bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center">
+                <div className="w-5 h-5 rounded-lg bg-gradient-to-br from-cyan-500 to-sky-500 flex items-center justify-center">
                   <Sparkles className="w-3 h-3 text-white" />
                 </div>
-                <span className="text-xs font-bold text-purple-300">إلهام اليوم</span>
+                <span className="text-xs font-bold text-cyan-300">إلهام اليوم</span>
                 <button
                   onClick={() => refreshSuggestion()}
                   disabled={isLoadingAi}
-                  className="mr-auto p-1 rounded-lg hover:bg-purple-500/20 transition-colors disabled:opacity-50"
+                  className="mr-auto p-1 rounded-lg hover:bg-cyan-500/20 transition-colors disabled:opacity-50"
                 >
-                  <svg className={`w-3.5 h-3.5 text-purple-300 ${isLoadingAi ? 'animate-spin' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className={`w-3.5 h-3.5 text-cyan-300 ${isLoadingAi ? 'animate-spin' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                   </svg>
                 </button>
@@ -1604,7 +1604,7 @@ export default function IdeasPage() {
               </p>
               <button
                 onClick={addSuggestionAsIdea}
-                className="flex items-center gap-1.5 text-xs py-1.5 px-3 rounded-lg bg-purple-500/20 text-purple-200 hover:bg-purple-500/30 transition-colors"
+                className="flex items-center gap-1.5 text-xs py-1.5 px-3 rounded-lg bg-cyan-500/20 text-cyan-200 hover:bg-cyan-500/30 transition-colors"
               >
                 <Plus className="w-3 h-3" />
                 حفظ كفكرة
@@ -1616,7 +1616,7 @@ export default function IdeasPage() {
           <div className="flex gap-2 px-4 pb-3 overflow-x-auto">
             <button
               onClick={() => { setAiAction('suggest'); setAiMessages([]); setSelectedIdeaForAi(null) }}
-              className={`flex-shrink-0 flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-medium transition-all ${aiAction === 'suggest' ? 'bg-purple-500/20 text-purple-300 border border-purple-500/30 shadow-lg shadow-purple-500/5' : 'text-gray-400 hover:bg-white/5 border border-transparent'}`}
+              className={`flex-shrink-0 flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-medium transition-all ${aiAction === 'suggest' ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 shadow-lg shadow-cyan-500/5' : 'text-gray-400 hover:bg-white/5 border border-transparent'}`}
             >
               <Sparkles className="w-3.5 h-3.5" />
               اقتراح فكرة
@@ -1656,7 +1656,7 @@ export default function IdeasPage() {
           {/* Selected idea info */}
           {selectedIdeaForAi && (
             <div className="px-4 pb-3">
-              <div className="flex items-center gap-2 p-3 rounded-xl bg-[#0f1629] border border-white/10">
+              <div className="flex items-center gap-2 p-3 rounded-xl bg-[#0c1a2e] border border-white/10">
                 <div className="w-2 h-2 rounded-full" style={{ backgroundColor: CATEGORY_CONFIG[selectedIdeaForAi.category]?.color }} />
                 <span className="text-xs text-gray-400">الفكرة المحددة:</span>
                 <span className="text-xs text-white font-medium truncate">{selectedIdeaForAi.title}</span>
@@ -1669,8 +1669,8 @@ export default function IdeasPage() {
         <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4">
           {aiMessages.length === 0 && !isLoadingAi && (
             <div className="flex flex-col items-center justify-center h-full text-center">
-              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-500/20 to-indigo-500/10 flex items-center justify-center mb-4 border border-purple-500/10">
-                <Brain className="w-10 h-10 text-purple-400/60" />
+              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-sky-500/10 flex items-center justify-center mb-4 border border-cyan-500/10">
+                <Brain className="w-10 h-10 text-cyan-400/60" />
               </div>
               <h3 className="text-lg font-bold text-white mb-2">
                 {aiAction === 'suggest' ? 'اقتراح فكرة جديدة' : aiAction === 'chat' ? 'محادثة حرة' : aiAction === 'expand' ? 'توسيع فكرة' : 'تحسين فكرة'}
@@ -1688,7 +1688,7 @@ export default function IdeasPage() {
                     <button
                       key={q}
                       onClick={() => { setAiInput(q); setTimeout(() => { setAiInput(q) }, 0) }}
-                      className="px-3 py-2 rounded-xl text-xs text-gray-400 bg-white/5 border border-white/5 hover:border-purple-500/30 hover:text-purple-300 hover:bg-purple-500/5 transition-all"
+                      className="px-3 py-2 rounded-xl text-xs text-gray-400 bg-white/5 border border-white/5 hover:border-cyan-500/30 hover:text-cyan-300 hover:bg-cyan-500/5 transition-all"
                     >
                       {q}
                     </button>
@@ -1700,13 +1700,13 @@ export default function IdeasPage() {
           {aiMessages.map((msg, i) => (
             <div key={i} className={`flex gap-3 ${msg.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in-0 slide-in-from-bottom-2 duration-300`}>
               {msg.role === 'ai' && (
-                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center flex-shrink-0 mt-1 shadow-lg shadow-purple-500/20">
+                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-cyan-500 to-sky-500 flex items-center justify-center flex-shrink-0 mt-1 shadow-lg shadow-cyan-500/20">
                   <Brain className="w-4 h-4 text-white" />
                 </div>
               )}
               <div className={`max-w-[85%] sm:max-w-[75%] rounded-2xl px-4 py-3 text-sm leading-relaxed whitespace-pre-wrap ${
                 msg.role === 'user'
-                  ? 'bg-purple-600/20 text-purple-100 border border-purple-500/20'
+                  ? 'bg-cyan-600/20 text-cyan-100 border border-cyan-500/20'
                   : 'bg-[#1a1f3a] text-gray-200 border border-white/5'
               }`}>
                 {msg.content}
@@ -1733,7 +1733,7 @@ export default function IdeasPage() {
                         setIdeas(prev => [newIdea, ...prev])
                         toast({ title: '✅ تمت الإضافة', description: 'تم حفظ الرد كفكرة جديدة' })
                       }}
-                      className="flex items-center gap-1 text-[10px] text-gray-500 hover:text-purple-300 transition-colors"
+                      className="flex items-center gap-1 text-[10px] text-gray-500 hover:text-cyan-300 transition-colors"
                     >
                       <Bookmark className="w-3 h-3" />
                       حفظ كفكرة
@@ -1743,7 +1743,7 @@ export default function IdeasPage() {
                         navigator.clipboard.writeText(msg.content)
                         toast({ title: '📋 تم النسخ', description: 'تم نسخ الرد إلى الحافظة' })
                       }}
-                      className="flex items-center gap-1 text-[10px] text-gray-500 hover:text-purple-300 transition-colors"
+                      className="flex items-center gap-1 text-[10px] text-gray-500 hover:text-cyan-300 transition-colors"
                     >
                       نسخ
                     </button>
@@ -1759,12 +1759,12 @@ export default function IdeasPage() {
           ))}
           {isLoadingAi && (
             <div className="flex gap-3 animate-in fade-in-0 slide-in-from-bottom-2 duration-300">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-purple-500/20">
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-cyan-500 to-sky-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-cyan-500/20">
                 <Brain className="w-4 h-4 text-white" />
               </div>
               <div className="bg-[#1a1f3a] border border-white/5 rounded-2xl px-5 py-4">
                 <div className="flex items-center gap-2 text-gray-400 text-sm">
-                  <Loader2 className="w-4 h-4 animate-spin text-purple-400" />
+                  <Loader2 className="w-4 h-4 animate-spin text-cyan-400" />
                   يفكر...
                 </div>
               </div>
@@ -1780,11 +1780,11 @@ export default function IdeasPage() {
               value={aiContext}
               onChange={e => setAiContext(e.target.value)}
               placeholder="موضوع محدد (مثال: تطبيق لتتبع العادات)..."
-              className="bg-[#1a1f3a] border-white/10 focus:border-purple-500/50 h-9 text-sm text-white placeholder-gray-500"
+              className="bg-[#1a1f3a] border-white/10 focus:border-cyan-500/50 h-9 text-sm text-white placeholder-gray-500"
             />
           </div>
         )}
-        <div className="flex-shrink-0 flex gap-2 px-4 py-3 border-t border-white/10 bg-[#030712]/80 backdrop-blur-xl">
+        <div className="flex-shrink-0 flex gap-2 px-4 py-3 border-t border-white/10 bg-[#020617]/80 backdrop-blur-xl">
           <Input
             value={aiInput}
             onChange={e => setAiInput(e.target.value)}
@@ -1794,12 +1794,12 @@ export default function IdeasPage() {
               : aiAction === 'chat' ? 'اكتب رسالتك...'
               : 'اكتب الفكرة أو اطرح سؤالك...'
             }
-            className="flex-1 bg-[#1a1f3a] border-white/10 focus:border-purple-500/50 h-11 text-sm text-white placeholder-gray-500"
+            className="flex-1 bg-[#1a1f3a] border-white/10 focus:border-cyan-500/50 h-11 text-sm text-white placeholder-gray-500"
           />
           <Button
             onClick={sendAiMessage}
             disabled={isLoadingAi || (!aiInput.trim() && aiAction !== 'suggest')}
-            className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white h-11 px-5 disabled:opacity-50 shadow-lg shadow-purple-500/20"
+            className="bg-gradient-to-r from-cyan-600 to-sky-600 hover:from-cyan-500 hover:to-sky-500 text-white h-11 px-5 disabled:opacity-50 shadow-lg shadow-cyan-500/20"
           >
             {isLoadingAi ? (
               <Loader2 className="w-4 h-4 animate-spin" />
@@ -1830,7 +1830,7 @@ export default function IdeasPage() {
           style={{ background: 'radial-gradient(circle, rgba(99,102,241,0.15), transparent 70%)' }}
         />
         <div className="absolute -bottom-[400px] -left-[400px] w-[800px] h-[800px] rounded-full opacity-20"
-          style={{ background: 'radial-gradient(circle, rgba(139,92,246,0.1), transparent 70%)' }}
+          style={{ background: 'radial-gradient(circle, rgba(6,182,212,0.1), transparent 70%)' }}
         />
       </div>
 
@@ -1878,7 +1878,7 @@ export default function IdeasPage() {
           width: 18px;
           height: 18px;
           border-radius: 50%;
-          background: #6366f1;
+          background: cyan-600;
           cursor: pointer;
           border: 3px solid #0f1629;
           box-shadow: 0 0 10px rgba(99, 102, 241, 0.4);
@@ -1887,7 +1887,7 @@ export default function IdeasPage() {
           width: 18px;
           height: 18px;
           border-radius: 50%;
-          background: #6366f1;
+          background: cyan-600;
           cursor: pointer;
           border: 3px solid #0f1629;
           box-shadow: 0 0 10px rgba(99, 102, 241, 0.4);
