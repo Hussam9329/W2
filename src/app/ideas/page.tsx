@@ -532,7 +532,7 @@ export default function IdeasPage() {
             </div>
             <div>
               <h2 className="text-lg font-bold text-white">أفكاري</h2>
-              <p className="text-xs text-gray-500">Powered by Riham Territory</p>
+              <p className="text-xs text-gray-500">Powered by Rham Territory</p>
             </div>
           </div>
           {/* Back button */}
@@ -708,7 +708,7 @@ export default function IdeasPage() {
         <div className="mt-auto p-4 border-t border-white/10">
           <div className="flex items-center gap-2 text-xs text-gray-600">
             <Brain className="w-3 h-3" />
-            <span>Riham Territory Ideas</span>
+            <span>Rham Territory Ideas</span>
           </div>
         </div>
       </div>

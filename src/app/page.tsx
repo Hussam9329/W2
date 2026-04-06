@@ -6,7 +6,7 @@ import { ArrowLeft, Sparkles, BookOpen, Lightbulb, Gamepad2, Lock, Eye, EyeOff }
 
 const APP_PASSWORD = '2007'
 
-export default function RihamTerritoryHome() {
+export default function RhamTerritoryHome() {
   const [mounted, setMounted] = useState(false)
   const [hoveredCard, setHoveredCard] = useState<string | null>(null)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -94,7 +94,7 @@ export default function RihamTerritoryHome() {
                   className="text-3xl sm:text-4xl font-bold mb-2 text-center tracking-tight"
                 >
                   <span className="bg-gradient-to-l from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-transparent">
-                    Riham
+                    Rham
                   </span>{' '}
                   <span className="bg-gradient-to-l from-purple-400 via-purple-500 to-purple-600 bg-clip-text text-transparent">
                     Territory
@@ -241,7 +241,7 @@ export default function RihamTerritoryHome() {
                 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-3 sm:mb-4 tracking-tight"
               >
                 <span className="bg-gradient-to-l from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(59,130,246,0.3)]">
-                  Riham
+                  Rham
                 </span>
                 <span className="bg-gradient-to-l from-purple-400 via-purple-500 to-purple-600 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(168,85,247,0.3)]">
                   Territory

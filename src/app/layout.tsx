@@ -16,10 +16,10 @@ const tajawal = Tajawal({
 });
 
 export const metadata: Metadata = {
-  title: "Riham Territory",
+  title: "Rham Territory",
   description: "PRECISION ANALYTICS • STRATEGIC FORESIGHT - أرشيفي وأفكاري",
-  keywords: ["Riham Territory", "رهام", "أرشيفي", "أفكاري", "أفلام", "مسلسلات", "أنمي", "كتب"],
-  authors: [{ name: "Riham" }],
+  keywords: ["Rham Territory", "رهام", "أرشيفي", "أفكاري", "أفلام", "مسلسلات", "أنمي", "كتب"],
+  authors: [{ name: "Rham" }],
   icons: {
     icon: "/favicon.ico",
   },

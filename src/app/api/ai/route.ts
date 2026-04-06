@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const SYSTEM_PROMPT = `أنت مساعد ذكي متخصص في الإبداع وتطوير الأفكار. أنت جزء من تطبيق Riham Territory - محور شخصي للمستخدمة رهام.
+const SYSTEM_PROMPT = `أنت مساعد ذكي متخصص في الإبداع وتطوير الأفكار. أنت جزء من تطبيق Rham Territory - محور شخصي للمستخدمة رهام.
 
 قواعدك:
 - أجب دائما باللغة العربية
