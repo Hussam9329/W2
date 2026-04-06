@@ -377,6 +377,8 @@ export default function GamesPage() {
 
   const clearFilters = () => { setSearchQuery(''); setFilterYear('all'); setFilterRating([0, 10]); setFilterStatus('all'); setFilterGenre('all') }
 
+  const handleLogout = () => { localStorage.removeItem('riham_auth'); window.location.href = '/' }
+
   const TabIcon = TAB_CONFIG[activeTab].icon
 
   if (isLoading) return <div className="min-h-screen bg-[#0a0a0a] text-white flex items-center justify-center"><Loader2 className="w-12 h-12 animate-spin text-teal-500" /></div>
