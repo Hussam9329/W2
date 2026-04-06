@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model WatchItem2 {
+  id             String   @id @default(cuid())
+  title          String
+  originalTitle  String?
+  year           String
+  type           String
+  poster         String?
+  rating         String?
+  overview       String?
+  genres         String   @default("")
+  episodes       Int?
+  seasons        Int?
+  duration       String?
+  status         String?
+  author         String?
+  pages          Int?
+  tags           String   @default("")
+  notes          String   @default("")
+  favorite       Boolean  @default(false)
+  watched        Boolean  @default(false)
+  watchedAt      String?
+  userRating     Float?
+  addedAt        DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
